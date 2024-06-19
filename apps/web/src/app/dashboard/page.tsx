@@ -10,8 +10,13 @@ import { Chart } from 'chart.js/auto';
 
 Chart.register(CategoryScale);
 
+const initialState = {
+  balance: 0,
+  transactions: 0
+}
+
 function DashboardPage() {
-  const [dashboardData, setDashboardData] = useState({});
+  const [dashboardData, setDashboardData] = useState(initialState);
   const [balance, setBalance] = useState(0);
 
   const fetchDashboardData = async () => {
@@ -30,7 +35,7 @@ function DashboardPage() {
   }, []);
 
   const handleWithdraw = () => {
-    if (balance > Number(dashboardData?.balance)) {
+    if (balance > Number(dashboardData.balance)) {
       alert('Too big');
     } else if (balance > 0) {
       alert('Withdrawal successful');
@@ -39,20 +44,16 @@ function DashboardPage() {
     }
   };
 
-  if (Object.keys(dashboardData).length === 0) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <Nav />
       <div className="flex justify-center items-center h-screen flex-col gap-2">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <p>
-          <strong>Transactions:</strong> {dashboardData?.transactions}
+          <strong>Transactions:</strong> {dashboardData.transactions}
         </p>
         <p>
-          <strong>Balance:</strong> {dashboardData?.balance}
+          <strong>Balance:</strong> {dashboardData.balance}
         </p>
         <div className="sm:col-span-3">
           <label

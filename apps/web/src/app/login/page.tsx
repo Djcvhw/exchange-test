@@ -2,7 +2,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import LoginForm from '../../components/LoginForm';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useAuthStore } from '../../providers/auth-provider';
 import Nav from '../../components/Nav';
 
@@ -55,4 +55,10 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+const LoginPageSuspense = () => {
+  return <Suspense>
+    <LoginPage />
+  </Suspense>
+}
+
+export default LoginPageSuspense;

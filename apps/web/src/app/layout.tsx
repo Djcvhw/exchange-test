@@ -18,7 +18,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <AuthStoreProvider>
-      <html lang="en">
+      <html lang='en'>
         <body className={inter.className}>{children}</body>
       </html>
     </AuthStoreProvider>

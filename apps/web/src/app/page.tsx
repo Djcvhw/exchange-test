@@ -5,10 +5,14 @@ import withAuth from '../utils/withAuth';
 import { useAuthStore } from '../providers/auth-provider';
 import Nav from '../components/Nav';
 
+const initialState = {
+  name: '',
+  phone: ''
+}
+
 function Main() {
-  const [mainData, setMainData] = useState({});
-  const { isAuth, resetAuth } = useAuthStore((state) => state);
-  console.log('Main', { isAuth });
+  const [mainData, setMainData] = useState(initialState);
+  const { isAuth } = useAuthStore((state) => state);
 
   const fetchMainData = async () => {
     try {
@@ -26,20 +30,16 @@ function Main() {
     fetchMainData();
   }, [isAuth]);
 
-  if (Object.keys(mainData).length === 0) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <Nav />
-      <div className="flex justify-center items-center h-screen flex-col">
-        <h1 className="text-2xl font-bold">Main</h1>
+      <div className='flex justify-center items-center h-screen flex-col'>
+        <h1 className='text-2xl font-bold'>Main</h1>
         <p>
-          <strong>User:</strong> {mainData?.name}
+          <strong>User:</strong> {mainData.name}
         </p>
         <p>
-          <strong>Phone:</strong> {mainData?.phone}
+          <strong>Phone:</strong> {mainData.phone}
         </p>
       </div>
     </>

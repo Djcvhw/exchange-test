@@ -2,9 +2,15 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Nav from '../../components/Nav';
+import { common } from 'common-types';
+
+const initialState = {
+  image: '',
+  content: ''
+}
 
 function AboutPage() {
-  const [aboutData, setAboutData] = useState({});
+  const [aboutData, setAboutData] = useState<common['AboutContent']>(initialState);
 
   useEffect(() => {
     const fetchAboutData = async () => {
@@ -14,9 +20,7 @@ function AboutPage() {
 
     fetchAboutData();
   }, []);
-  if (Object.keys(aboutData).length === 0) {
-    return <div>Loading...</div>;
-  }
+
   return (
     <>
       <Nav />
