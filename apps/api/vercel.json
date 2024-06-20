@@ -6,6 +6,7 @@
       "use": "@vercel/node"
     }
   ],
+  "devCommand": "node dist/main",
   "routes": [
     {
       "src": "/(.*)",
