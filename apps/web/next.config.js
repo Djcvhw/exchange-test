@@ -6,15 +6,15 @@ module.exports = {
     return [
       {
         source: '/api/login',
-        destination: 'http://localhost:3021/auth/login',
+        destination: 'https://exchange-test-auth.vercel.app/auth/login',
       },
       {
         source: '/api/validate',
-        destination: 'http://localhost:3021/auth/validate',
+        destination: 'https://exchange-test-auth.vercel.app/auth/validate',
       },
       {
         source: '/api/:path',
-        destination: 'http://localhost:3022/:path',
+        destination: 'https://exchange-test-api.vercel.app//:path',
       },
     ];
   },
