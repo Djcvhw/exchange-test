@@ -7,7 +7,7 @@ import { common } from 'common-types';
 @Injectable()
 export class ApiService {
   private readonly authServiceUrl =
-    'https://exchange-test-auth.vercel.app/auth/server-validate'; // URL to the auth service
+    'http://localhost:3001/auth/server-validate'; // URL to the auth service
 
   constructor(private readonly httpService: HttpService) {}
 
